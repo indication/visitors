@@ -1,5 +1,5 @@
 bin_PROGRAMS=visitors
-visitors_SOURCES=visitor.c blacklist.h 
+visitors_SOURCES=visitors.c blacklist.h 
 
 SUBDIRS = m4 intl po
 
