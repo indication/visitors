@@ -15,6 +15,9 @@
 #include <locale.h>
 #include <ctype.h>
 
+#include "config.h"
+#include "intl.h"
+
 #include "aht.h"
 #include "antigetopt.h"
 #include "sleep.h"
@@ -3392,6 +3395,10 @@ int main(int argc, char **argv)
 	struct vih *vih;
 	char *filenames[VI_FILENAMES_MAX];
 	int filenamec = 0;
+
+	setlocale(LC_ALL, "");
+	bindtextdomain("visitors", ".");
+	textdomain("visitors");
 
 	/* Handle command line options */
 	while((o = antigetopt(argc, argv, visitors_optlist)) != AGO_EOF) {

@@ -1,0 +1,54 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+PACKAGE=visitors
+VERSION=0.0.7
+AC_PREREQ([2.63])
+AC_DEFINE_UNQUOTED(PACKAGE, "$PACKAGE")
+AC_DEFINE_UNQUOTED(VERSION, "$VERSION")
+AC_DEFINE(VERSION, "$VERSION")
+AC_DEFINE(PACKAGE, "$PACKAGE")
+AC_SUBST(PACKAGE)
+AC_SUBST(VERSION)
+AC_INIT([visitors], 0.7, no-define)
+AM_INIT_AUTOMAKE(PACKAGE, VERSION, no-define)
+AC_CONFIG_SRCDIR(.)
+AC_CONFIG_HEADERS([config.h])
+
+# Checks for programs.
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_PROG_MAKE_SET
+
+# Checks for libraries.
+AC_CANONICAL_HOST
+ALL_LINGUAS="ja"
+LDFLAGS="$LDFLAGS $INTLLIBS"
+localedir='${prefix}/share/locale'
+AC_SUBST(localedir)
+AC_DEFINE(HAVE_CATGETS, 1,
+Define as 1 if you have catgets and don't want to use GNU gettext.)
+AC_DEFINE(HAVE_GETTEXT, 1,
+          Define as 1 if you have GNU gettext.)
+AC_DEFINE(HAVE_LC_MESSAGES, 1,
+          Define as 1 if you have LC_MESSAGES.)
+AC_DEFINE(HAVE_STPCPY, 1,
+          Define as 1 if you have stpcpy() function.)
+AC_DEFINE(ENABLE_NLS, 1,
+          Define as 1 if you want to use NLS.)
+AM_GNU_GETTEXT
+
+
+# Checks for header files.
+AC_CHECK_HEADERS([locale.h stdlib.h string.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_TYPE_SIZE_T
+
+# Checks for library functions.
+AC_FUNC_MALLOC
+AC_FUNC_MKTIME
+AC_CHECK_FUNCS([memset setlocale strcasecmp strchr strdup strerror strncasecmp strrchr strspn strstr])
+
+AC_CONFIG_FILES([Makefile intl/Makefile po/Makefile.in m4/Makefile])
+#AC_CONFIG_FILES([Makefile intl/Makefile po/Makefile.in])
+AC_OUTPUT
