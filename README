@@ -17,6 +17,7 @@ HOW TO COMPILE
 
 Under UNIX systems just type:
 
+% ./configure
 % make
 
 Under WIN32 you need MINGW and MSYS, then follow the above
