@@ -69,7 +69,8 @@ CONFIG_CLEAN_FILES = intl/Makefile
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_visitors_OBJECTS = visitors.$(OBJEXT)
+am_visitors_OBJECTS = visitors.$(OBJEXT) aht.$(OBJEXT) \
+	antigetopt.$(OBJEXT) tail.$(OBJEXT)
 visitors_OBJECTS = $(am_visitors_OBJECTS)
 visitors_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@
@@ -274,7 +275,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-visitors_SOURCES = visitors.c blacklist.h 
+visitors_SOURCES = visitors.c blacklist.h aht.c antigetopt.c tail.c 
 SUBDIRS = m4 intl po
 ACLOCAL_AMFLAGS = -I m4
 AM_CPPFLAGS = -DLOCALEDIR='"$(localedir)"'
@@ -384,6 +385,9 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/aht.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/antigetopt.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/tail.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/visitors.Po@am__quote@
 
 .c.o:
